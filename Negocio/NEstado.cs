@@ -10,13 +10,7 @@ namespace Negocio
     public class NEstado
     {
         private DEstado _DEstado = new DEstado();
-        public List<Estado> Consultar()
-        {
-            throw new NotImplementedException();
-        }
-        public Estado Consultar(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public List<Estado> Consultar() => _DEstado.Consultar();
+        public Estado Consultar(int id) => _DEstado.Consultar(id);
     }
 }

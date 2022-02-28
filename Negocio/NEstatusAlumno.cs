@@ -10,13 +10,7 @@ namespace Negocio
     public class NEstatusAlumno
     {
         private DEstatusAlumno _DEstatusAlumno = new DEstatusAlumno();
-        public List<EstatusAlumno> Consultar()
-        {
-           return _DEstatusAlumno.Consultar();
-        }
-        public EstatusAlumno Consultar(int id)
-        {
-          return  _DEstatusAlumno.Consultar(id);
-        }
+        public List<EstatusAlumno> Consultar() => _DEstatusAlumno.Consultar();
+        public EstatusAlumno Consultar(int id) => _DEstatusAlumno.Consultar(id);
     }
 }

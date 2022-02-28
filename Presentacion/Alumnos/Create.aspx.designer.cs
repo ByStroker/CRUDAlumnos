@@ -168,13 +168,13 @@ namespace Presentacion.Alumnos
         protected global::System.Web.UI.WebControls.Label Label9;
 
         /// <summary>
-        /// Control TextBox9.
+        /// Control DropDownList1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox9;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
 
         /// <summary>
         /// Control Label10.
@@ -186,13 +186,13 @@ namespace Presentacion.Alumnos
         protected global::System.Web.UI.WebControls.Label Label10;
 
         /// <summary>
-        /// Control TextBox10.
+        /// Control DropDownList2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox10;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
 
         /// <summary>
         /// Control Button1.

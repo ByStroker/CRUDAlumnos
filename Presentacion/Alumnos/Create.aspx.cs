@@ -23,7 +23,7 @@ namespace Presentacion.Alumnos
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            
+            //crear join a idestado.nombre e idestatus.nombre
                 alumno.nombre = TextBox1.Text;
                 alumno.primerApellido = TextBox2.Text;
                 alumno.segundoApellido = TextBox3.Text;

@@ -119,7 +119,7 @@ namespace Datos
         public void Actualizar(Alumno alumno) {
             string query;
             SqlCommand comando;
-            query = $"update Alumnos set nombre='{alumno.nombre}',primerApellido='{alumno.primerApellido}',segundoApellido='{alumno.segundoApellido}',correo='{alumno.correo}', telefono='{alumno.telefono}',fechaNacimiento= '{alumno.fechaNacimiento}',curp='{alumno.curp}',sueldo= {alumno.sueldo},idEstadoOrigen={alumno.idEstadoOrigen},idEstatus= {alumno.idEstatus} where id={alumno.id}";
+            query = $"update Alumnos set nombre='{alumno.nombre}',primerApellido='{alumno.primerApellido}',segundoApellido='{alumno.segundoApellido}',correo='{alumno.correo}', telefono='{alumno.telefono}',fechaNacimiento= '{alumno.fechaNacimiento.ToString("dd/MM/yyyy")}',curp='{alumno.curp}',sueldo= {alumno.sueldo},idEstadoOrigen={alumno.idEstadoOrigen},idEstatus= {alumno.idEstatus} where id={alumno.id}";
             try
             {
                 using (SqlConnection con = new SqlConnection(_connString))

@@ -88,7 +88,7 @@
 	</dl>
 	<div class="form-group">
 		<div class="col-md-2">
-			<a href="Liga.aspx">Ir a</a>
+			<a href="Index.aspx">Ir a la lista</a>
 		</div>
 	</div>
 	<div class="form-group">

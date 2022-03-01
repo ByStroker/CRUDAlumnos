@@ -23,8 +23,11 @@
         <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList><br />
         <asp:Label ID="Label10" runat="server" Text="estatus"></asp:Label>
         <asp:DropDownList ID="DropDownList2" runat="server"></asp:DropDownList><br />
-        <asp:Button ID="Button1" runat="server" Text="guardar" OnClick="Button1_Click" />
-
+        <div class=form-group>
+            <asp:Button  ID="Button1" runat="server" Text="guardar" OnClick="Button1_Click" />
+        <asp:Button ID="Button2" runat="server" Text="Cancelar" style=margin-left:10px; OnClick="Button2_Click" />
+        </div>
+        
     
         </div>
 </asp:Content>

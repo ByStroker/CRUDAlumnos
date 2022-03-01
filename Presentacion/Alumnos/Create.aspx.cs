@@ -59,12 +59,17 @@ namespace Presentacion.Alumnos
                 asd.AgregarAlumno(alumno);
                 Thread.Sleep(3000);
 
-                Response.Redirect("Index.aspx");
+                Response.Redirect("Index.aspx",false);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Index.aspx", false);
         }
     }
 }

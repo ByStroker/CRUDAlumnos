@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
 using Entidades;
+using System.Threading;
+
 namespace Presentacion.Alumnos
 {
     public partial class Edit : System.Web.UI.Page
@@ -53,21 +55,35 @@ namespace Presentacion.Alumnos
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Alumno actual = new Alumno();
-            actual.id = Convert.ToInt32(Request.QueryString["id"]);
-            actual.nombre = TextBox1.Text;
-            actual.primerApellido = TextBox2.Text;
-            actual.segundoApellido = TextBox3.Text;
-            actual.correo = TextBox4.Text;
-            actual.telefono = TextBox5.Text;
-            actual.fechaNacimiento = Convert.ToDateTime(TextBox6.Text);
-            actual.curp = TextBox7.Text;
-            actual.sueldo = Convert.ToDecimal(TextBox8.Text);
-            actual.idEstadoOrigen = Convert.ToInt32(DropDownList1.SelectedValue);
-            actual.idEstatus = Convert.ToInt16(DropDownList2.SelectedValue);
-            asd.Actualizar(actual);
-            Response.Redirect("Index.aspx");
+            try
+            {
+                Alumno actual = new Alumno();
+                actual.id = Convert.ToInt32(Request.QueryString["id"]);
+                actual.nombre = TextBox1.Text;
+                actual.primerApellido = TextBox2.Text;
+                actual.segundoApellido = TextBox3.Text;
+                actual.correo = TextBox4.Text;
+                actual.telefono = TextBox5.Text;
+                actual.fechaNacimiento = Convert.ToDateTime(TextBox6.Text);
+                actual.curp = TextBox7.Text;
+                actual.sueldo = Convert.ToDecimal(TextBox8.Text);
+                actual.idEstadoOrigen = Convert.ToInt32(DropDownList1.SelectedValue);
+                actual.idEstatus = Convert.ToInt16(DropDownList2.SelectedValue);
+                asd.Actualizar(actual);
+                Thread.Sleep(3000);
+                Response.Redirect("Index.aspx",false);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
-        
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Index.aspx", false);
+        }
     }
 }

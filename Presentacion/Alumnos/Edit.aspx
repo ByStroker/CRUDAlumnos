@@ -20,9 +20,9 @@
         <asp:Label ID="Label8" runat="server" Text="sueldo"></asp:Label>
         <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox><br />
         <asp:Label ID="Label9" runat="server" Text="estadoorigen"></asp:Label>
-        <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox><br />
+        <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList><br />
         <asp:Label ID="Label10" runat="server" Text="estatus"></asp:Label>
-        <asp:TextBox ID="TextBox10" runat="server"></asp:TextBox><br />
+        <asp:DropDownList ID="DropDownList2" runat="server"></asp:DropDownList><br />
         <asp:Button ID="Button1" runat="server" Text="guardar" OnClick="Button1_Click" />
 
     

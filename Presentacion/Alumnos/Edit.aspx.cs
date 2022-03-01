@@ -13,6 +13,8 @@ namespace Presentacion.Alumnos
         NAlumno asd = new NAlumno();
         //Alumno alumno = new Alumno { id = 1, nombre = "jorge", primerApellido = "sanchez", segundoApellido = "castillo", correo = "alberto@mail.com", curp = "sacj910222hocnsr", fechaNacimiento = Convert.ToDateTime("1991/02/02"), telefono = "1234567890", sueldo = 27500, idEstadoOrigen = 2, idEstatus = 3 };
         Alumno alumnoact = new Alumno();
+        NEstado nEstado = new NEstado();
+        NEstatusAlumno nEstatus = new NEstatusAlumno();
         int id;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,8 +22,10 @@ namespace Presentacion.Alumnos
             {
                 id = Convert.ToInt32(Request.QueryString["id"]);
                 alumnoact = asd.Consultar(id);
-
-
+                List<Estado>  oEstado = nEstado.Consultar();
+                List<EstatusAlumno> oEstatusAlumno = nEstatus.Consultar();
+                Estado nombreestado = oEstado.Find(estado => estado.id == alumnoact.idEstadoOrigen);
+                EstatusAlumno nombreestatus = oEstatusAlumno.Find(estatus => estatus.id == alumnoact.idEstatus);
                 TextBox1.Text = Convert.ToString(alumnoact.nombre);
                 TextBox2.Text = Convert.ToString(alumnoact.primerApellido);
                 TextBox3.Text = Convert.ToString(alumnoact.segundoApellido);
@@ -30,8 +34,18 @@ namespace Presentacion.Alumnos
                 TextBox6.Text = Convert.ToString(alumnoact.fechaNacimiento);
                 TextBox7.Text = Convert.ToString(alumnoact.curp);
                 TextBox8.Text = Convert.ToString(alumnoact.sueldo);
-                TextBox9.Text = Convert.ToString(alumnoact.idEstadoOrigen);
-                TextBox10.Text = Convert.ToString(alumnoact.idEstatus);
+                DropDownList1.DataSource = oEstado;
+                DropDownList1.DataValueField = "id";
+                DropDownList1.DataTextField = "nombre";
+                DropDownList1.DataBind();
+                DropDownList1.SelectedValue =  nombreestado.id.ToString();
+
+                DropDownList2.DataSource = oEstatusAlumno;
+                DropDownList2.DataValueField = "id";
+                DropDownList2.DataTextField = "nombre";
+                DropDownList2.DataBind();
+                DropDownList2.SelectedValue = nombreestatus.id.ToString();
+               
             }
             
 
@@ -49,10 +63,10 @@ namespace Presentacion.Alumnos
             actual.fechaNacimiento = Convert.ToDateTime(TextBox6.Text);
             actual.curp = TextBox7.Text;
             actual.sueldo = Convert.ToDecimal(TextBox8.Text);
-            actual.idEstadoOrigen = Convert.ToInt32(TextBox9.Text);
-            actual.idEstatus = Convert.ToInt16(TextBox10.Text);
+            actual.idEstadoOrigen = Convert.ToInt32(DropDownList1.SelectedValue);
+            actual.idEstatus = Convert.ToInt16(DropDownList2.SelectedValue);
             asd.Actualizar(actual);
-           
+            Response.Redirect("Index.aspx");
         }
         
     }

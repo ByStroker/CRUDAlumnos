@@ -37,7 +37,7 @@ namespace Presentacion.Alumnos
             int id;
             id = Convert.ToInt32(Request.QueryString["id"]);
             asd.Eliminar(id);
-            //Response.Redirect("Index.aspx");
+            Response.Redirect("Index.aspx");
         }
     }
 }

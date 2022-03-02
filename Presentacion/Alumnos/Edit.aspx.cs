@@ -33,7 +33,7 @@ namespace Presentacion.Alumnos
                 TextBox3.Text = Convert.ToString(alumnoact.segundoApellido);
                 TextBox4.Text = Convert.ToString(alumnoact.correo);
                 TextBox5.Text = Convert.ToString(alumnoact.telefono);
-                TextBox6.Text = Convert.ToString(alumnoact.fechaNacimiento);
+                TextBox6.Text = alumnoact.fechaNacimiento.ToString("yyyy-MM-dd");
                 TextBox7.Text = Convert.ToString(alumnoact.curp);
                 TextBox8.Text = Convert.ToString(alumnoact.sueldo);
                 DropDownList1.DataSource = oEstado;
@@ -49,10 +49,7 @@ namespace Presentacion.Alumnos
                 DropDownList2.SelectedValue = nombreestatus.id.ToString();
                
             }
-            
-
         }
-
         protected void Button1_Click(object sender, EventArgs e)
         {
             try
@@ -70,8 +67,7 @@ namespace Presentacion.Alumnos
                 actual.idEstadoOrigen = Convert.ToInt32(DropDownList1.SelectedValue);
                 actual.idEstatus = Convert.ToInt16(DropDownList2.SelectedValue);
                 asd.Actualizar(actual);
-                Thread.Sleep(3000);
-                Response.Redirect("Index.aspx",false);
+                
             }
             catch (Exception ex)
             {
@@ -79,11 +75,24 @@ namespace Presentacion.Alumnos
                 throw ex;
             }
             
+                Thread.Sleep(3000);
+                
+                Response.Redirect("~/Alumnos/Index.aspx",false);
+            
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
             Response.Redirect("Index.aspx", false);
+        }
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            var fechanac = TextBox6.Text;
+            
+            var fechacurp = TextBox7.Text;
+            var fechanaci = fechanac.Substring(2, 2) + fechanac.Substring(5, 2) + fechanac.Substring(8, 2);
+            args.IsValid = fechacurp == fechanaci;
         }
     }
 }
